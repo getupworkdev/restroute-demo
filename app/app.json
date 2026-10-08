@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "RestRoute",
+    "slug": "restroute-demo",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.restroute.demo",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Shows stops near you and drops a pin where you are when you add one.",
+        "NSPhotoLibraryUsageDescription": "Attach a photo of a stop."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "com.restroute.demo"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "single"
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Shows stops near you and drops a pin where you are when you add one."
+        }
+      ],
+      "expo-image-picker"
+    ]
+  }
+}
