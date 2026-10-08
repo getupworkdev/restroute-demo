@@ -4,7 +4,9 @@ do $$ begin
   create role anon nologin; create role authenticated nologin; create role service_role nologin bypassrls;
 exception when duplicate_object then null; end $$;
 create schema auth;
-create table auth.users (id uuid primary key, email text, raw_user_meta_data jsonb default '{}', is_anonymous boolean default false);
+create table auth.users (instance_id uuid, id uuid primary key, aud text, role text, email text,
+  raw_user_meta_data jsonb default '{}', raw_app_meta_data jsonb default '{}', is_anonymous boolean default false,
+  created_at timestamptz, updated_at timestamptz);
 create function auth.uid() returns uuid language sql stable as $$
   select nullif(current_setting('request.jwt.claim.sub', true), '')::uuid $$;
 grant usage on schema auth to anon, authenticated;

@@ -2,7 +2,7 @@
 -- Postgres + PostGIS on Supabase. All content is shared: every pin, rating, report,
 -- price and photo lives here, and Row Level Security decides who may write what.
 
-create extension if not exists postgis;
+create extension if not exists postgis with schema public;
 
 -- ---------------------------------------------------------------- types
 
